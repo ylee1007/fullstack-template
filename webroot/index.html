@@ -6,8 +6,25 @@
     <link rel="stylesheet" href="/css/main.css">
   </head>
   <body>
+  <div class="container">
     <script src="/js/app.js"></script>
-  	<h1>Country Search Template</h1>
-  	<p>This is here to get you started.</p>
+  	<h1>Country Search</h1>
+    <div><b>Please search the country name or code</b></div>
+    <!-- search country-->
+    <form action="/api/index.php">
+        <input type="text" onkeyup="callCountryInfo(this.value)" name = "country" required>
+        <button type ="submit">search</button>
+    </form>
+    <p>Suggested keywords: <span id="txtHint"></span></p>
+
+    <form action="api/elementList.php">
+        <button type ="submit">Show Search Keywords</button>
+
+    </form>
+
+    <br>
+
+  </div>
+    <!--<img src="https://restcountries.eu/data/prk.svg" alt = "flag image"/>-->
   </body>
 </html>
