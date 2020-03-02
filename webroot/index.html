@@ -9,17 +9,18 @@
   <div class="container">
     <script src="/js/app.js"></script>
   	<h1>Country Search</h1>
-    <div><b>Please search the country name or code</b></div>
+    <div class = "text"><b>Please search the country name or code</b></div>
+
     <!-- search country-->
     <form action="/api/index.php">
-        <input type="text" onkeyup="callCountryInfo(this.value)" name = "country" required>
-        <button type ="submit">search</button>
+        <input class="input" type="text" onkeyup="callCountryInfo(this.value)" name = "country" required>
+        <button class = "button" type ="submit">search</button>
     </form>
-    <p>Suggested keywords: <span id="txtHint"></span></p>
+    <p>Result: <span id="txtHint"></span></p>
 
+    <!-- Suggested keyword to search country-->
     <form action="api/elementList.php">
-        <button type ="submit">Show Search Keywords</button>
-
+        <button class = "button" type ="submit">Show Search Keywords</button>
     </form>
 
     <br>

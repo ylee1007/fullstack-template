@@ -3,7 +3,7 @@ This css file is a placeholder. Use this or roll your own, choice is yours.
 */
 div.container{
     width: 900px;
-    height: 600px;
+    height: 800px;
     margin:50px auto;
     /*width: 30%; */
     /*margin: 50px auto 0px;*/
@@ -14,4 +14,43 @@ div.container{
     border-bottom: none;
     border-radius: 10px 10px 10px 10px;
     /*padding: 20px;*/
+}
+div.list{
+    width: 1000px;
+    margin:0px auto;
+    /*width: 30%; */
+    /*margin: 50px auto 0px;*/
+    color: white;
+    background: #1D89BF;
+    text-align: center;
+    border: 1px solid #B0C4DE;
+    border-bottom: none;
+    border-radius: 10px 10px 10px 10px;
+    /*padding: 20px;*/
+}
+
+.button{
+    border-radius: 5px;
+    font-size: 16px;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.table{
+    text-align: center;
+    margin: 0 auto;
+}
+
+.text{
+    padding-bottom: 15px;
+}
+
+.input[type=text], select {
+    width: 25%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
 }

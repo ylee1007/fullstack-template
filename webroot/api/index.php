@@ -6,9 +6,7 @@
 header('Content-Type: application/json');
 //echo json_encode(['data' => ['Your data']]);
 
-//country
 //$country = "Korea";
-
 //set country api url
 //$country_url = 'https://restcountries.eu/rest/v2/name/' . urlencode($_GET[$country]);
 //$country_url = 'https://restcountries.eu/rest/v2/name/Afghanistan';
@@ -25,16 +23,22 @@ if(!empty($country) and !empty($countryName_array)) {
  $len = strlen($country);
 
  foreach ($countryName_array as $countryName) {
-  echo $country;
-  echo "<br>";
-  echo substr($countryName['alpha2Code'], 0, $len);
+  //echo $country;
+  //echo "<br>";
+  //echo substr($countryName['alpha2Code'], 0, $len);
+  //case insensitive strcasecmp(string1, string2) method, tried to debug with printing our the comparison, but it always gives false.
 
+  // input either have some part of full name, alpha code2, or alpha code2 -> does not detect the code yet with mal comparision.
   if (stristr($country, substr($countryName['name'], 0, $len)) or
-      stristr($country, substr($countryName['alpha2Code'], 0, $len)) or
-      stristr($country, substr($countryName['alpha3Code'], 0, $len))) {
+      stristr($country, substr($countryName['alpha2Code'], 0, 2)) or
+      stristr($country, substr($countryName['alpha3Code'], 0, 3))) {
    $numCont +=1;
    //echo $countryName['name'];
-   if ($resultName === "") {
+   if ($resultName === "") { // for first time just add
+    // print the json file of selected country
+    /*$country_url = 'https://restcountries.eu/rest/v2/name/' . $country;
+    $countryName_json=file_get_contents($country_url);
+    echo $countryName_json;*/
     $resultName = $countryName['name'];
     $resultAlpha2Code = $countryName['alpha2Code'];
     $resultAlpha3Code = $countryName['alpha3Code'];
@@ -50,7 +54,7 @@ if(!empty($country) and !empty($countryName_array)) {
       $lang .= $otherLang;
      }
     }
-   } else {
+   } else { // if it is not empty, concatenate
     $otherName = $countryName['name'];
     $otherAlpha2Code = $countryName['alpha2Code'];
     $otherAlpha3Code = $countryName['alpha3Code'];
@@ -79,6 +83,7 @@ if(!empty($country) and !empty($countryName_array)) {
   }
  }
 }
+// print out the information, but is not an json format.
 echo "<br>";
 echo "Name: ";
 echo  $resultName === "" ? "No suggestion" :$resultName;
@@ -105,6 +110,7 @@ echo "<br><br>";
 echo "Number of Country: ";
 echo $numCont;
 
+// practice, test codes
 /*if(!empty($_GET['country'])){
  $country_url = 'https://restcountries.eu/rest/v2/name/'.urlencode($_GET['country']);
  $country_json = file_get_contents($country_url);
